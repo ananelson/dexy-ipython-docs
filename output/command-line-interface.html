@@ -1,0 +1,759 @@
+
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+        <style type="text/css">
+            
+/*
+    Fluid Baseline Grid v1.0.0
+    Designed & Built by Josh Hopkins and 40 Horse, http://40horse.com
+    Licensed under Unlicense, http://unlicense.org/
+
+    Base stylesheet with CSS normalization, typographic baseline grid and progressive responsiveness
+*/
+
+/* HTML5 DECLARATIONS */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, dialog {display: block}
+audio[controls],canvas,video {display: inline-block; *display: inline; zoom: 1}
+
+/* BASE */
+html {height: 100%; font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%} /* Force scrollbar in non-IE and Remove iOS text size adjust without disabling user zoom */
+body {margin: 0; min-height: 100%; -webkit-font-smoothing:antialiased; font-smoothing:antialiased; text-rendering:optimizeLegibility; background:url('../images/24px_grid_bg.gif') 0 1.1875em} /* Improve default text rendering, handling of kerning pairs and ligatures */
+
+/* DEFAULT FONT SETTINGS */
+/* 16px base font size with 150% (24px) friendly, unitless line height and margin for vertical rhythm */
+/* Font-size percentage is based on 16px browser default size */
+body, button, input, select, textarea {font: 100%/1.5 Georgia,Palatino,"Palatino Linotype",Times,"Times New Roman",serif; *font-size: 1em; color: #333} /* IE7 and older can't resize px based text */
+p, blockquote, q, pre, address, hr, code, samp, dl, ol, ul, form, table, fieldset, menu, img {margin: 0 0 1.5em; padding: 0}
+
+/* TYPOGRAPHY */
+/* Composed to a scale of 12px, 14px, 16px, 18px, 21px, 24px, 36px, 48px, 60px and 72px */
+h1, h2, h3, h4, h5, h6 {font-family:Futura, "Century Gothic", AppleGothic, sans-serif;color:#222;text-shadow:1px 1px 1px rgba(0,0,0,.10)}
+h1 {margin: 0; font-size: 3.75em; line-height: 1.2em; margin-bottom: 0.4em} /* 60px / 72px */
+h2 {margin: 0; font-size: 3em; line-height: 1em; margin-bottom: 0.5em} /* 48px / 48px */
+h3 {margin: 0; font-size: 2.25em; line-height: 1.3333333333333333333333333333333em; margin-bottom: 0.6667em} /* 36px / 48px */ 
+h4 {margin: 0; font-size: 1.5em; line-height: 1em; margin-bottom: 1em} /* 24px / 24px */
+h5 {margin: 0; font-size: 1.3125em; line-height: 1.1428571428571428571428571428571em; margin-bottom: 1.1428571428571428571428571428571em} /* 21px / 24px */
+h6 {margin: 0; font-size: 1.125em; line-height: 1.3333333333333333333333333333333em; margin-bottom: 1.3333333333333333333333333333333em} /* 18px / 24px */
+p, ul, blockquote, pre, td, th, label {margin: 0; font-size: 1em; line-height: 1.5em; margin-bottom: 1.5em} /* 16px / 24px */
+small, p.small {margin: 0; font-size: 0.875em; line-height: 1.7142857142857142857142857142857em; margin-bottom: 1.7142857142857142857142857142857em} /* 14px / 24px */
+
+/* CODE */
+pre {white-space: pre; white-space: pre-wrap; word-wrap: break-word} /* Allow line wrapping of 'pre' */
+pre, code, kbd, samp {font-size: 1em; line-height: 1.5em; margin-bottom: 1.5em; font-family: Menlo, Consolas, 'DejaVu Sans Mono', Monaco, monospace}
+
+/* TABLES */
+table {border-collapse: collapse; border-spacing: 0; margin-bottom: 1.5em}
+th {text-align: left}
+tr, th, td {padding-right: 1.5em; border-bottom: 0 solid #333}
+
+/* FORMS */
+form {margin: 0}
+fieldset {border: 0;padding: 0}
+textarea {overflow: auto; vertical-align: top}
+legend {*margin-left: -.75em}
+button, input, select, textarea {vertical-align: baseline; *vertical-align: middle} /* IE7 and older */
+button, input {line-height: normal; *overflow: visible}
+button, input[type="button"], input[type="reset"], input[type="submit"] {cursor: pointer;-webkit-appearance: button}
+input[type="checkbox"], input[type="radio"] {box-sizing: border-box}
+input[type="search"] {-webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box}
+input[type="search"]::-webkit-search-decoration {-webkit-appearance: none}
+button::-moz-focus-inner, input::-moz-focus-inner {border: 0; padding: 0}
+
+/* QUOTES */
+blockquote, q {quotes: none}
+blockquote:before, blockquote:after, q:before, q:after {content: ''; content: none}
+blockquote, q, cite {font-style: italic}
+blockquote {padding-left: 1.5em; border-left: 3px solid #ccc}
+blockquote > p {padding: 0}
+
+/* LISTS */
+ul, ol {list-style-position: inside; padding: 0}
+li ul, li ol {margin: 0 1.5em}
+dl dd {margin-left: 1.5em}
+dt {font-family:Futura, "Century Gothic", AppleGothic, sans-serif}
+
+/* HYPERLINKS */
+a {text-decoration: none; color:#c47529}
+a:hover {text-decoration: underline}
+a:focus {outline: thin dotted}
+a:hover, a:active {outline: none} /* Better CSS Outline Suppression */
+
+/* MEDIA */
+figure {margin: 0}
+img, object, embed, video {max-width: 100%; _width: 100%} /* Fluid images */
+img {border: 0; -ms-interpolation-mode: bicubic} /* Improve IE's resizing of images */
+svg:not(:root) {overflow: hidden} /* Correct IE9 overflow */
+
+/* ABBREVIATION */
+abbr[title], dfn[title] {border-bottom: 1px dotted #333; cursor: help}
+
+/* MARKED/INSERTED/DELETED AND SELECTED TEXT */
+ins, mark {text-decoration: none}
+mark {background: #c47529}
+ins {background: #d49855}
+del {text-decoration: line-through}
+::-moz-selection {background: #c47529; color: #fff; text-shadow: none} /* selected text */
+::selection {background: #c47529; color: #fff; text-shadow: none} /* selected text */
+
+/* OTHERS */
+strong, b, dt { font-weight: bold}
+dfn {font-style: italic}
+var, address {font-style: normal}
+sub, sup {font-size: 75%; line-height: 0; position: relative; vertical-align: baseline} /* Position 'sub' and 'sup' without affecting line-height */
+sup {top: -0.5em} /* Move superscripted text up */
+sub {bottom: -0.25em} /* Move subscripted text down */
+span.amp{font-family:Adobe Caslon Pro,Baskerville,"Goudy Old Style","Palatino","Palatino Linotype","Book Antiqua",Georgia,"Times New Roman",Times,serif;font-style:italic;font-size:110%;line-height:0;position:relative;vertical-align:baseline} /* Best available ampersand */
+
+/* MICRO CLEARFIX HACK */
+.cf:before, .cf:after {content:"";display:table} /* For modern browsers */
+.cf:after {clear:both}
+.cf {zoom:1} /* For IE 6/7 (trigger hasLayout) */
+
+/* DEFAULT MOBILE STYLE */
+body {width: 92%; margin: 0 auto} /* Center page without wrapper */
+/* column grid */
+.g1,.g2,.g3{display:block; position: relative; margin-left: 1%; margin-right: 1%}
+/* 1 column grid */
+.g1,.g2,.g3{width:98.0%}
+
+
+/* media Queries
+
+FOLDING FLUID GRID
+< 767px         - 1-Column Fluid Grid
+768px - 1023px  - 2-Column Fluid Grid
+> 1024px            - 3-Column Fluid Grid
+Change widths as necessary
+------------------------------------------- */
+
+/* MOBILE PORTRAIT */
+@media only screen and (min-width: 320px) {
+    body {
+        
+    }
+}
+
+/* MOBILE LANDSCAPE */
+@media only screen and (min-width: 480px) {
+    body {
+        
+    }
+}
+
+/* SMALL TABLET */
+@media only screen and (min-width: 600px) {
+    body {
+        
+    }
+}
+
+/* TABLET/NETBOOK */
+@media only screen and (min-width: 768px) { 
+    body {
+        
+    }
+    
+    /* COLUMN GRID */
+    .g1,.g2,.g3 {display:inline; float: left}
+    
+    /* 2 COLUMN GRID */
+    .g1 {width:48.0%}
+    .g2 {width:48.0%}
+    .g3 {width:98.0%}
+}
+
+/* LANDSCAPE TABLET/NETBOOK/LAPTOP */
+@media only screen and (min-width: 1024px) { 
+    body {
+
+    }
+    
+    /* 3 COLUMN GRID */
+    .g1 {width:31.333%}
+    .g2 {width:64.667%;}
+    .g3 {width:98.0%}
+}
+
+@media only screen and (min-width: 1280px) { 
+/* DESKTOP */
+        body {
+
+    }
+}
+
+/* WIDESCREEN */
+/* Increased body size for legibility */
+@media only screen and (min-width: 1400px) { 
+    body {font-size:116.75%; background:url('../images/28px_grid_bg.gif') 0 1.25em; max-width:1440px} /* 18.5px / 28px */
+}
+
+
+/* PRINT */
+@media print {
+  * {background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important} /* Black prints faster */
+  a, a:visited {color: #444 !important; text-decoration: underline}
+  a[href]:after {content: " (" attr(href) ")"}
+  abbr[title]:after {content: " (" attr(title) ")"}
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {content: ""}  /* Don't print links for images, javascript or internal links */
+  pre, blockquote {border: 1px solid #999; page-break-inside: avoid; }
+  thead {display: table-header-group; } /* Repeat header row at top of each printed page */
+  tr, img {page-break-inside: avoid; }
+  img {max-width: 100% !important; }
+  @page {margin: 0.5cm}
+  p, h2, h3 {orphans: 3; widows: 3}
+  h2, h3{page-break-after: avoid}
+}
+
+            
+/*
+ * Copyright (c) 2013 Thibaut Courouble
+ * http://www.cssflow.com
+ *
+ * Licensed under the MIT License:
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+
+.button {
+  font: 10px/18px 'Lucida Grande', Arial, sans-serif;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  overflow: hidden;
+  min-width: 96px;
+  line-height: 30px;
+  padding: 0 24px;
+  font-size: 14px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 1px #154c86;
+  background-color: #247edd;
+  background-clip: padding-box;
+  border: 1px solid;
+  border-color: #1c65b2 #18589c #18589c;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2);
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04));
+  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04));
+  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04));
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04));
+}
+.button:before {
+  content: '';
+  position: absolute;
+  top: -25%;
+  bottom: -25%;
+  left: -20%;
+  right: -20%;
+  border-radius: 50%;
+  background: transparent;
+  -webkit-box-shadow: inset 0 0 38px rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 0 38px rgba(255, 255, 255, 0.5);
+}
+.button:hover {
+  background-color: #1a74d3;
+  text-decoration: none;
+}
+.button:active {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 -1px #154c86;
+  background: #1f71c8;
+  border-color: #113f70 #154c86 #1c65b2;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px rgba(255, 255, 255, 0.4);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px rgba(255, 255, 255, 0.4);
+  background-image: -webkit-linear-gradient(top, #1a5da5, #3a8be0);
+  background-image: -moz-linear-gradient(top, #1a5da5, #3a8be0);
+  background-image: -o-linear-gradient(top, #1a5da5, #3a8be0);
+  background-image: linear-gradient(to bottom, #1a5da5, #3a8be0);
+}
+.button:active:before {
+  top: -50%;
+  bottom: -125%;
+  left: -15%;
+  right: -15%;
+  -webkit-box-shadow: inset 0 0 96px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 96px rgba(0, 0, 0, 0.2);
+}
+
+.button-green {
+  text-shadow: 0 1px #0d4d09;
+  background-color: #1ca913;
+  border-color: #147b0e #11640b #11640b;
+}
+.button-green:hover {
+  background-color: #159b0d;
+}
+.button-green:active {
+  text-shadow: 0 -1px #0d4d09;
+  background: #189210;
+  border-color: #093606 #0d4d09 #147b0e;
+  background-image: -webkit-linear-gradient(top, #126d0c, #20c016);
+  background-image: -moz-linear-gradient(top, #126d0c, #20c016);
+  background-image: -o-linear-gradient(top, #126d0c, #20c016);
+  background-image: linear-gradient(to bottom, #126d0c, #20c016);
+}
+
+.button-red {
+  text-shadow: 0 1px #72100d;
+  background-color: #cd1d18;
+  border-color: #9f1713 #891310 #891310;
+}
+.button-red:hover {
+  background-color: #c01511;
+}
+.button-red:active {
+  text-shadow: 0 -1px #72100d;
+  background: #b61a15;
+  border-color: #5b0d0b #72100d #9f1713;
+  background-image: -webkit-linear-gradient(top, #921511, #e4201b);
+  background-image: -moz-linear-gradient(top, #921511, #e4201b);
+  background-image: -o-linear-gradient(top, #921511, #e4201b);
+  background-image: linear-gradient(to bottom, #921511, #e4201b);
+}
+
+            
+.highlight .hll { background-color: #ffffcc }
+.highlight .c { color: #888888 } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { color: #008800; font-weight: bold } /* Keyword */
+.highlight .cm { color: #888888 } /* Comment.Multiline */
+.highlight .cp { color: #cc0000; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #888888 } /* Comment.Single */
+.highlight .cs { color: #cc0000; font-weight: bold; background-color: #fff0f0 } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #303030 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #606060 } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { color: #008800; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008800; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008800; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008800 } /* Keyword.Pseudo */
+.highlight .kr { color: #008800; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #888888; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #0000DD; font-weight: bold } /* Literal.Number */
+.highlight .s { color: #dd2200; background-color: #fff0f0 } /* Literal.String */
+.highlight .na { color: #336699 } /* Name.Attribute */
+.highlight .nb { color: #003388 } /* Name.Builtin */
+.highlight .nc { color: #bb0066; font-weight: bold } /* Name.Class */
+.highlight .no { color: #003366; font-weight: bold } /* Name.Constant */
+.highlight .nd { color: #555555 } /* Name.Decorator */
+.highlight .ne { color: #bb0066; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0066bb; font-weight: bold } /* Name.Function */
+.highlight .nl { color: #336699; font-style: italic } /* Name.Label */
+.highlight .nn { color: #bb0066; font-weight: bold } /* Name.Namespace */
+.highlight .py { color: #336699; font-weight: bold } /* Name.Property */
+.highlight .nt { color: #bb0066; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #336699 } /* Name.Variable */
+.highlight .ow { color: #008800 } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #0000DD; font-weight: bold } /* Literal.Number.Float */
+.highlight .mh { color: #0000DD; font-weight: bold } /* Literal.Number.Hex */
+.highlight .mi { color: #0000DD; font-weight: bold } /* Literal.Number.Integer */
+.highlight .mo { color: #0000DD; font-weight: bold } /* Literal.Number.Oct */
+.highlight .sb { color: #dd2200; background-color: #fff0f0 } /* Literal.String.Backtick */
+.highlight .sc { color: #dd2200; background-color: #fff0f0 } /* Literal.String.Char */
+.highlight .sd { color: #dd2200; background-color: #fff0f0 } /* Literal.String.Doc */
+.highlight .s2 { color: #dd2200; background-color: #fff0f0 } /* Literal.String.Double */
+.highlight .se { color: #0044dd; background-color: #fff0f0 } /* Literal.String.Escape */
+.highlight .sh { color: #dd2200; background-color: #fff0f0 } /* Literal.String.Heredoc */
+.highlight .si { color: #3333bb; background-color: #fff0f0 } /* Literal.String.Interpol */
+.highlight .sx { color: #22bb22; background-color: #f0fff0 } /* Literal.String.Other */
+.highlight .sr { color: #008800; background-color: #fff0ff } /* Literal.String.Regex */
+.highlight .s1 { color: #dd2200; background-color: #fff0f0 } /* Literal.String.Single */
+.highlight .ss { color: #aa6600; background-color: #fff0f0 } /* Literal.String.Symbol */
+.highlight .bp { color: #003388 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #336699 } /* Name.Variable.Class */
+.highlight .vg { color: #dd7700 } /* Name.Variable.Global */
+.highlight .vi { color: #3333bb } /* Name.Variable.Instance */
+.highlight .il { color: #0000DD; font-weight: bold } /* Literal.Number.Integer.Long */
+
+            
+        </style>
+        
+    </head>
+    <body>
+    <div id="content">
+        <div class="g3">
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#command-line-documentation" id="id1">Command Line Documentation</a></li>
+<li><a class="reference internal" href="#commentary" id="id2">Commentary</a></li>
+<li><a class="reference internal" href="#ipython-help" id="id3">IPython Help</a></li>
+<li><a class="reference internal" href="#nbconvert-help" id="id4">nbconvert Help</a></li>
+</ul>
+</div>
+<div class="section" id="command-line-documentation">
+<h1><a class="toc-backref" href="#id1">Command Line Documentation</a></h1>
+<p>This is an example of generating .rst docs which shows the output from running
+ipython command line help.</p>
+</div>
+<div class="section" id="commentary">
+<h1><a class="toc-backref" href="#id2">Commentary</a></h1>
+<p>The basic help is way too long, the first help should just point people to the
+basic command and where they can get more detailed help.</p>
+</div>
+<div class="section" id="ipython-help">
+<h1><a class="toc-backref" href="#id3">IPython Help</a></h1>
+<p>Here is the basic ipython help available:</p>
+<pre class="code console literal-block">
+<span class="generic prompt">$</span> ipython --help
+<span class="generic output">=========
+ IPython
+=========
+
+Tools for Interactive Computing in Python
+=========================================
+
+    A Python shell with automatic history (input and output), dynamic object
+    introspection, easier configuration, command completion, access to the
+    system shell and more.  IPython can also be embedded in running programs.
+
+Usage
+
+    ipython [subcommand] [options] [-c cmd | -m mod | file] [--] [arg] ...
+
+    If invoked with no options, it executes the file and exits, passing the
+    remaining arguments to the script, just as if you had specified the same
+    command with python. You may need to specify `--` before args to be passed
+    to the script, to prevent IPython from attempting to parse them. If you
+    specify the option `-i` before the filename, it will enter an interactive
+    IPython session after running the script, rather than exiting. Files ending
+    in .py will be treated as normal Python, but files ending in .ipy can
+    contain special IPython syntax (magic commands, shell expansions, etc.).
+
+    Almost all configuration in IPython is available via the command-line. Do
+    `ipython --help-all` to see all available options.  For persistent
+    configuration, look into your `ipython_config.py` configuration file for
+    details.
+
+    This file is typically installed in the `IPYTHONDIR` directory, and there
+    is a separate configuration directory for each profile. The default profile
+    directory will be located in $IPYTHONDIR/profile_default. For Linux users,
+    IPYTHONDIR defaults to `$HOME/.config/ipython`, and for other Unix systems
+    to `$HOME/.ipython`.  For Windows users, $HOME resolves to C:\Documents
+    and Settings\YourUserName in most instances.
+
+    To initialize a profile with the default configuration file, do::
+
+      $&gt; ipython profile create
+
+    and start editing `IPYTHONDIR/profile_default/ipython_config.py`
+
+    In IPython's documentation, we will refer to this directory as
+    `IPYTHONDIR`, you can change its default location by creating an
+    environment variable with this name and setting it to the desired path.
+
+    For more information, see the manual available in HTML and PDF in your
+    installation, or online at http://ipython.org/documentation.html.
+
+Subcommands
+-----------
+
+Subcommands are launched as `ipython cmd [args]`. For information on using
+subcommand 'cmd', do: `ipython cmd -h`.
+
+locate
+    print the path to the IPython dir
+profile
+    Create and manage IPython profiles.
+console
+    Launch the IPython terminal-based Console.
+kernel
+    Start a kernel without an attached frontend.
+notebook
+    Launch the IPython HTML Notebook Server.
+nbconvert
+    Convert notebooks to/from other formats.
+qtconsole
+    Launch the IPython Qt Console.
+history
+    Manage the IPython history database.
+
+Options
+-------
+
+Arguments that take values are actually convenience aliases to full
+Configurables, whose aliases are listed on the help line. For more information
+on full configurables, see '--help-all'.
+
+--no-autoindent
+    Turn off autoindenting.
+--autoedit-syntax
+    Turn on auto editing of files with syntax errors.
+--deep-reload
+    Enable deep (recursive) reloading by default. IPython can use the
+    deep_reload module which reloads changes in modules recursively (it
+    replaces the reload() function, so you don't need to change anything to
+    use it). deep_reload() forces a full reload of modules whose code may
+    have changed, which the default reload() function does not.  When
+    deep_reload is off, IPython will use the normal reload(), but
+    deep_reload will still be available as dreload(). This feature is off
+    by default [which means that you have both normal reload() and
+    dreload()].
+--confirm-exit
+    Set to confirm when you try to exit IPython with an EOF (Control-D
+    in Unix, Control-Z/Enter in Windows). By typing 'exit' or 'quit',
+    you can force a direct exit without any confirmation.
+--pylab
+    Pre-load matplotlib and numpy for interactive use with
+    the default matplotlib backend.
+--matplotlib
+    Configure matplotlib for interactive use with
+    the default matplotlib backend.
+--term-title
+    Enable auto setting the terminal title.
+--classic
+    Gives IPython a similar feel to the classic Python prompt.
+--autoindent
+    Turn on autoindenting.
+--no-automagic
+    Turn off the auto calling of magic commands.
+--banner
+    Display a banner upon starting IPython.
+--automagic
+    Turn on the auto calling of magic commands. Type %%magic at the
+    IPython  prompt  for  more information.
+--no-deep-reload
+    Disable deep (recursive) reloading by default.
+--no-term-title
+    Disable auto setting the terminal title.
+--nosep
+    Eliminate all spacing between prompts.
+-i
+    If running code from the command line, become interactive afterwards.
+    Note: can also be given simply as '-i.'
+--debug
+    set log level to logging.DEBUG (maximize logging output)
+--pprint
+    Enable auto pretty printing of results.
+--no-autoedit-syntax
+    Turn off auto editing of files with syntax errors.
+--quiet
+    set log level to logging.CRITICAL (minimize logging output)
+--no-color-info
+    Disable using colors for info related things.
+--color-info
+    IPython can display information about objects via a set of func-
+    tions, and optionally can use colors for this, syntax highlighting
+    source code and various other elements.  However, because this
+    information is passed through a pager (like 'less') and many pagers get
+    confused with color codes, this option is off by default.  You can test
+    it and turn it on permanently in your ipython_config.py file if it
+    works for you.  Test it and turn it on permanently if it works with
+    your system.  The magic function %%color_info allows you to toggle this
+    interactively for testing.
+--init
+    Initialize profile with default config files.  This is equivalent
+    to running `ipython profile create &lt;profile&gt;` prior to startup.
+--no-pdb
+    Disable auto calling the pdb debugger after every exception.
+--quick
+    Enable quick startup with no config files.
+--no-confirm-exit
+    Don't prompt the user when exiting.
+--pydb
+    Use the third party 'pydb' package as debugger, instead of pdb.
+    Requires that pydb is installed.
+--pdb
+    Enable auto calling the pdb debugger after every exception.
+--no-pprint
+    Disable auto auto pretty printing of results.
+--no-banner
+    Don't display a banner upon starting IPython.
+--profile=&lt;Unicode&gt; (BaseIPythonApplication.profile)
+    Default: u'default'
+    The IPython profile to use.
+-c &lt;Unicode&gt; (InteractiveShellApp.code_to_run)
+    Default: ''
+    Execute the given command string.
+--pylab=&lt;CaselessStrEnum&gt; (InteractiveShellApp.pylab)
+    Default: None
+    Choices: ['auto', 'gtk', 'inline', 'osx', 'qt', 'qt4', 'tk', 'wx']
+    Pre-load matplotlib and numpy for interactive use, selecting a particular
+    matplotlib backend and loop integration.
+--autocall=&lt;Enum&gt; (InteractiveShell.autocall)
+    Default: 0
+    Choices: (0, 1, 2)
+    Make IPython automatically call any callable object even if you didn't type
+    explicit parentheses. For example, 'str 43' becomes 'str(43)' automatically.
+    The value can be '0' to disable the feature, '1' for 'smart' autocall, where
+    it is not applied if there are no more arguments on the line, and '2' for
+    'full' autocall, where all callable objects are automatically called (even
+    if no arguments are present).
+--ipython-dir=&lt;Unicode&gt; (BaseIPythonApplication.ipython_dir)
+    Default: u'/home/ana/.config/ipython'
+    The name of the IPython directory. This directory is used for logging
+    configuration (through profiles), history storage, etc. The default is
+    usually $HOME/.ipython. This options can also be specified through the
+    environment variable IPYTHONDIR.
+--gui=&lt;CaselessStrEnum&gt; (InteractiveShellApp.gui)
+    Default: None
+    Choices: ('qt', 'wx', 'gtk', 'glut', 'pyglet', 'osx')
+    Enable GUI event loop integration ('qt', 'wx', 'gtk', 'glut', 'pyglet',
+    'osx').
+--logappend=&lt;Unicode&gt; (InteractiveShell.logappend)
+    Default: ''
+    Start logging to the given file in append mode.
+-m &lt;Unicode&gt; (InteractiveShellApp.module_to_run)
+    Default: ''
+    Run the module as a script.
+--ext=&lt;Unicode&gt; (InteractiveShellApp.extra_extension)
+    Default: ''
+    dotted module name of an IPython extension to load.
+--log-level=&lt;Enum&gt; (Application.log_level)
+    Default: 30
+    Choices: (0, 10, 20, 30, 40, 50, 'DEBUG', 'INFO', 'WARN', 'ERROR', 'CRITICAL')
+    Set the log level by value or name.
+--colors=&lt;CaselessStrEnum&gt; (InteractiveShell.colors)
+    Default: 'Linux'
+    Choices: ('NoColor', 'LightBG', 'Linux')
+    Set the color scheme (NoColor, Linux, or LightBG).
+--matplotlib=&lt;CaselessStrEnum&gt; (InteractiveShellApp.matplotlib)
+    Default: None
+    Choices: ['auto', 'gtk', 'inline', 'osx', 'qt', 'qt4', 'tk', 'wx']
+    Configure matplotlib for interactive use with the default matplotlib
+    backend.
+--cache-size=&lt;Integer&gt; (InteractiveShell.cache_size)
+    Default: 1000
+    Set the size of the output cache.  The default is 1000, you can change it
+    permanently in your config file.  Setting it to 0 completely disables the
+    caching system, and the minimum value accepted is 20 (if you provide a value
+    less than 20, it is reset to 0 and a warning is issued).  This limit is
+    defined because otherwise you'll spend more time re-flushing a too small
+    cache than working
+--logfile=&lt;Unicode&gt; (InteractiveShell.logfile)
+    Default: ''
+    The name of the logfile to use.
+--config=&lt;Unicode&gt; (BaseIPythonApplication.extra_config_file)
+    Default: u''
+    Path to an extra config file to load.
+    If specified, load this config file in addition to any other IPython config.
+
+To see all available configurables, use `--help-all`
+
+Examples
+--------
+
+    ipython --pylab            # start in pylab mode
+    ipython --pylab=qt         # start in pylab mode with the qt4 backend
+    ipython --log-level=DEBUG  # set logging to DEBUG
+    ipython --profile=foo      # start with profile foo
+
+    ipython qtconsole          # start the qtconsole GUI application
+    ipython help qtconsole     # show the help for the qtconsole subcmd
+
+    ipython console            # start the terminal-based console application
+    ipython help console       # show the help for the console subcmd
+
+    ipython notebook           # start the IPython notebook
+    ipython help notebook      # show the help for the notebook subcmd
+
+    ipython profile create foo # create profile foo w/ default config files
+    ipython help profile       # show the help for the profile subcmd
+
+    ipython locate             # print the path to the IPython directory
+    ipython locate profile foo # print the path to the directory for profile `foo`
+
+    ipython nbconvert           # convert notebooks to/from other formats</span>
+</pre>
+</div>
+<div class="section" id="nbconvert-help">
+<h1><a class="toc-backref" href="#id4">nbconvert Help</a></h1>
+<p>Here is the help for the <cite>nbconvert</cite> tool:</p>
+<pre class="code console literal-block">
+<span class="generic prompt">$</span> ipython nbconvert --help
+<span class="generic output">This application is used to convert notebook files (*.ipynb) to various other
+formats.
+
+Options
+-------
+
+Arguments that take values are actually convenience aliases to full
+Configurables, whose aliases are listed on the help line. For more information
+on full configurables, see '--help-all'.
+
+--debug
+    set log level to logging.DEBUG (maximize logging output)
+--init
+    Initialize profile with default config files.  This is equivalent
+    to running `ipython profile create &lt;profile&gt;` prior to startup.
+--quiet
+    set log level to logging.CRITICAL (minimize logging output)
+--stdout
+    Write notebook output to stdout instead of files.
+--profile=&lt;Unicode&gt; (BaseIPythonApplication.profile)
+    Default: u'default'
+    The IPython profile to use.
+--notebooks=&lt;List&gt; (NbConvertApp.notebooks)
+    Default: []
+    List of notebooks to convert. Wildcards are supported. Filenames passed
+    positionally will be added to the list.
+--ipython-dir=&lt;Unicode&gt; (BaseIPythonApplication.ipython_dir)
+    Default: u'/home/ana/.config/ipython'
+    The name of the IPython directory. This directory is used for logging
+    configuration (through profiles), history storage, etc. The default is
+    usually $HOME/.ipython. This options can also be specified through the
+    environment variable IPYTHONDIR.
+--format=&lt;CaselessStrEnum&gt; (NbConvertApp.export_format)
+    Default: 'full_html'
+    Choices: ['basic_html', 'full_html', 'latex', 'markdown', 'python', 'reveal', 'rst', 'sphinx_howto', 'sphinx_manual']
+    The export format to be used.
+--writer=&lt;DottedObjectName&gt; (NbConvertApp.writer_class)
+    Default: 'FilesWriter'
+    Writer class used to write the  results of the conversion
+--config=&lt;Unicode&gt; (BaseIPythonApplication.extra_config_file)
+    Default: u''
+    Path to an extra config file to load.
+    If specified, load this config file in addition to any other IPython config.
+--log-level=&lt;Enum&gt; (Application.log_level)
+    Default: 30
+    Choices: (0, 10, 20, 30, 40, 50, 'DEBUG', 'INFO', 'WARN', 'ERROR', 'CRITICAL')
+    Set the log level by value or name.
+
+To see all available configurables, use `--help-all`
+
+Examples
+--------
+
+    The simplest way to use nbconvert is
+
+    &gt; ipython nbconvert mynotebook.ipynb
+
+    which will convert mynotebook.ipynb to the default format (probably HTML).
+
+    You can specify the export format with `--format`.
+    Options include ['basic_html', 'full_html', 'latex', 'markdown', 'python', 'reveal', 'rst', 'sphinx_howto', 'sphinx_manual']
+
+    &gt; ipython nbconvert --format latex mynotebook.ipnynb
+
+    You can also pipe the output to stdout, rather than a file
+
+    &gt; ipython nbconvert mynotebook.ipynb --stdout
+
+    Multiple notebooks can be given at the command line in a couple of
+    different ways:
+
+    &gt; ipython nbconvert notebook*.ipynb
+    &gt; ipython nbconvert notebook1.ipynb notebook2.ipynb
+
+    or you can specify the notebooks list in a config file, containing::
+
+        c.NbConvertApp.notebooks = [&quot;my_notebook.ipynb&quot;]
+
+    &gt; ipython nbconvert --config mycfg.py</span>
+</pre>
+</div>
+
+        </div>
+    </div>
+    </body>
+</html>

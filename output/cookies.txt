@@ -1,0 +1,2 @@
+[General]
+cookies="@Variant(\0\0\0\x7f\0\0\0\x16QList<QNetworkCookie>\0\0\0\0\x1\0\0\0\x4\0\0\0IGPS=1; expires=Wed, 24-Jul-2013 02:21:06 GMT; domain=.youtube.com; path=/\0\0\0\x62VISITOR_INFO1_LIVE=VO-3iqqlOe8; expires=Mon, 24-Mar-2014 13:44:06 GMT; domain=.youtube.com; path=/\0\0\0icentralnotice_bucket=0-4.2; expires=Wed, 31-Jul-2013 01:51:11 GMT; domain=en.mobile.wikipedia.org; path=/\0\0\0QPREF=fv=0.0.0; expires=Sat, 22-Jul-2023 01:51:11 GMT; domain=.youtube.com; path=/)"

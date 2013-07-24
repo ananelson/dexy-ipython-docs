@@ -1,0 +1,19 @@
+docs:
+    - .rst|jinja:
+        - inputs
+        # Move generated rst files into a single directory for easy of copying to sphinx sources.
+        - output-name: "rst-sources/%(name)s"
+    - .rst|jinja|rstbody|easyhtml:
+        - inputs
+    - .rst|jinja|rstbody|easylatex|latex:
+        - inputs
+
+inputs:
+    - code/*.sh|idio|shint|pyg4rst
+    - .ipynb|ipynb
+    - screenshots.js|casperjs
+
+#validation:
+#    - .ipynb|ipynbvalidate # TODO make a ipynbvalidate filter which verifies format, throws exception on failures
+#       - ipynbvalidate: { "version" : "3" }
+
